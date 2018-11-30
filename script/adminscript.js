@@ -39,6 +39,7 @@ function layout(n) {
       break;
     case 1:
       productsLayout();
+      reloadArr();
       break;
     case 2:
       orderLayout();
