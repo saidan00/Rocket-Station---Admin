@@ -1,3 +1,4 @@
+reloadArr();
 
 function removeItem(n) {
   var temp = document.getElementsByClassName('tbl-content')[0];
