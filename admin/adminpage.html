@@ -73,6 +73,38 @@
       </div>
     </div>
     <!-- kết thúc form thay đổi thông tin sản phẩm -->
+
+    <!-- form cho thêm sản phẩm -->
+    <div class="product-add-form">
+      <div class="product-add-content animate">
+        <form name="productAdder">
+          <div class="product-add-container">
+            <h1>Thêm sản phẩm</h1>
+            <hr>
+            <label for="productName"><b>Tên sản phẩm</b></label>
+            <input type="text" placeholder="Tên sản phẩm" name="productName" required>
+
+            <label for="productId"><b>Mã sản phẩm</b></label>
+            <input type="text" placeholder="Mã sản phẩm" name="productId" required>
+
+            <label for="productFirstPrice"><b>Giá gốc</b></label>
+            <input type="text" placeholder="Giá gốc" name="productFirstPrice" required>
+
+            <label for="productFixPrice"><b>Giá giảm</b></label>
+            <input type="text" placeholder="Giá giảm" name="productFixPrice" required>
+
+            <label for="productImgFile"><b>Hình ảnh</b></label>
+            <input type="file" name="productImgFile">
+          </div>
+          <div class="clearfix">
+          <button type="button" class="add-btn">Thêm</button>
+          <button type="button" onclick="closeEditForm()" class="cancel-btn">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- kết thúc form thêm sản phẩm -->
+
     <div id="content">
 
       <div class="container">

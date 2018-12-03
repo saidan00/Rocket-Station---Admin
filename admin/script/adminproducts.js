@@ -68,7 +68,7 @@ function loadProductInformToForm(n) {
 
   var editBtn = document.getElementsByClassName("edit-btn")[0];
   editBtn.addEventListener('click', function changeProductInform() {
-    if (confirm("Bạn có muốn thay đổi thông tin sản phẩm " + productArr[n].id)) {
+    if (confirm("Bạn có muốn thay đổi thông tin sản phẩm " + productArr[n].id + "?")) {
       if (document.forms["productEditor"]["productName"].value == "" || document.forms["productEditor"]["productId"].value == "" || document.forms["productEditor"]["productFirstPrice"].value == "" || document.forms["productEditor"]["productFixPrice"].value == "") {
           alert("Vui lòng điền đầy đủ thông tin");
           return;
@@ -87,4 +87,24 @@ function loadProductInformToForm(n) {
 
 function closeEditForm() {
   document.getElementsByClassName('product-editor-form')[0].style.display = "none";
+  document.getElementsByClassName('product-add-form')[0].style.display = "none";
+}
+
+function addProductToTempArr() {
+  document.getElementsByClassName('product-add-form')[0].style.display = "block";
+  var addBtn = document.getElementsByClassName("add-btn")[0];
+  addBtn.addEventListener('click', function addAproduct() {
+    if (confirm("Bạn có muốn thêm sản phẩm?")) {
+      if (document.forms["productAdder"]["productName"].value == "" || document.forms["productAdder"]["productId"].value == "" || document.forms["productAdder"]["productFirstPrice"].value == "" || document.forms["productAdder"]["productFixPrice"].value == "") {
+          alert("Vui lòng điền đầy đủ thông tin");
+          return;
+      }
+      productArr[productArr.length] = new products (
+        document.forms["productAdder"]["productId"].value, document.forms["productAdder"]["productName"].value, document.forms["productAdder"]["productFirstPrice"].value, document.forms["productAdder"]["productFixPrice"].value, "a", "a", "a", "a", "a");
+      reloadArr();
+      this.removeEventListener('click', addAproduct);
+      document.forms["productAdder"].reset();
+      closeEditForm();
+    }
+  });
 }

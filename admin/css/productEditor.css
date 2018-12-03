@@ -1,4 +1,4 @@
-.product-editor-form {
+.product-editor-form, .product-add-form {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -10,14 +10,14 @@
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   padding-top: 60px;
 }
-.product-editor-content {
+.product-editor-content, .product-add-content {
   background-color: #fefefe;
   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
 }
 /* Full-width input fields */
-.product-editor-form input[type=text], input[type=password] {
+.product-editor-form input[type=text], input[type=password], .product-add-form input[type=text], input[type=password] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -25,7 +25,7 @@
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
-.product-editor-form button {
+.product-editor-form button, .product-add-form button {
   /* background-color: #4CAF50; */
   color: white;
   padding: 14px 20px;
@@ -37,7 +37,7 @@
   cursor: pointer;
   width: 95%;
 }
-.product-editor-form button:hover {
+.product-editor-form button:hover, . {
   opacity: 0.8;
 }
 .cancel-btn {
@@ -45,10 +45,10 @@
   padding: 10px 18px;
   background-color: #f44336;
 }
-.edit-btn {
+.edit-btn, .add-btn {
   background-color: #4CAF50;
 }
-.product-editor-container {
+.product-editor-container, .product-add-container {
   padding: 16px;
 }
 /* Add Zoom Animation */
