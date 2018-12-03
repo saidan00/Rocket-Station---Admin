@@ -1,33 +1,34 @@
-var url = location.href; //lấy url hiện tại
-var params = url.split('admin/'); //split tại 'admin/'
+let adminUrl = window.location.href;
+var params = adminUrl.split('/'); //split tại 'admin/'
 var sidebar = document.getElementsByClassName("sidebar-menu"); //get element để get tag ul
 var menuList = sidebar[0].getElementsByTagName('ul'); //get element để innerHTML
 
 //hàm khởi tạo
-function menuCreat(menuTitle, menuLink) {
+function menuCreat(menuTitle, menuLink, menuIcon) {
   this.menuTitle = menuTitle;
   this.menuLink = menuLink;
+  this.menuIcon = menuIcon;
 }
 
 //menu links array
 var menu = [];
-menu[0] = new menuCreat ("Home", "index.html");
-menu[1] = new menuCreat ("Sản phẩm", "index.html?products");
-menu[2] = new menuCreat ("Đơn hàng", "index.html?order");
-menu[3] = new menuCreat ("Khách hàng", "index.html?customer");
-menu[4] = new menuCreat ("Thống kê", "index.html?statistic");
+menu[0] = new menuCreat ("Home", "adminpage.html", '<i class="fa fa-home"></i>');
+menu[1] = new menuCreat ("Sản phẩm", "adminpage.html?products", '<i class="fa fa-paw"></i>');
+menu[2] = new menuCreat ("Đơn hàng", "adminpage.html?order", '<i class="fa fa-file-text"></i>');
+menu[3] = new menuCreat ("Khách hàng", "adminpage.html?customer", '<i class="fa fa-id-card"></i>');
+menu[4] = new menuCreat ("Thống kê", "adminpage.html?statistic", '<i class="fa fa-bar-chart"></i>');
 
 //menuOptions chứa text để innerHTML đến menuList
 var menuOptions = "";
 for (var i = 0; i < menu.length; i++) {
   var menuActice = "";
-  if (params[1] == menu[i].menuLink) {
+  if (params[params.length-1] == menu[i].menuLink) {
     menuActice = "active";
     layout(i);
   }
   else
     menuActice = "";
-  menuOptions += '<li><a class="' + menuActice +'" href="' + menu[i].menuLink + '">' + menu[i].menuTitle + '</a></li>';
+  menuOptions += '<li><a class="' + menuActice +'" href="' + menu[i].menuLink + '">' + menu[i].menuIcon + ' ' + menu[i].menuTitle + '</a></li>';
 };
 
 menuList[0].innerHTML = menuOptions;
@@ -119,7 +120,7 @@ function productsLayout() {
   '    </table>' +
   '  </div>' +
   '  <div class="tbl-content">' +
-  '    <!-- table here -->' +
+        /* table here */
   '  </div>' +
   '  <div class="tbl-searchbar">' +
   '    <form>' +
@@ -130,6 +131,7 @@ function productsLayout() {
   '      <input type="text" id="tbl-searchbar" onkeyup="showItem()" placeholder="Search...">' +
     '  </form>' +
   '  </div>' +
+  '<button onclick="addProductToTempArr()">Thêm Sản Phẩm</button>' +
   '</div>';
 }
 
@@ -152,7 +154,31 @@ function orderLayout() {
 }
 
 function customerLayout() {
-  document.getElementById('content').innerHTML = 'Nothing to show';
+  document.getElementById('content').innerHTML = '<div class="table shadow">' +
+  '  <div class="tbl-header">' +
+  '    <table class="bg-blue">' +
+  '      <tr>' +
+  '        <th>Họ Tên</th>' +
+  '        <th>Email</th>' +
+  '        <th>Tài khoản</th>' +
+  '        <th>Mật khẩu</th>' +
+  '        <th>Hành động</th>' +
+  '      </tr>' +
+  '    </table>' +
+  '  </div>' +
+  '  <div class="tbl-account">' +
+  '    <!-- table here -->' +
+  '  </div>' +
+  '  <div class="tbl-searchbar">' +
+  '    <form>' +
+  '      <select id="filterType" onchange="showItem()">' +
+  '        <option value="0">Tìm theo tên tài khoản</option>' +
+  '        <option value="1">Tìm theo tên</option>' +
+  '      </select>' +
+  '      <input type="text" id="tbl-searchbar" onkeyup="showItem()" placeholder="Search...">' +
+    '  </form>' +
+  '  </div>' +
+  '</div>';
 }
 
 function statisticLayout() {

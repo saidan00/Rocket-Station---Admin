@@ -3,11 +3,13 @@
 <head>
   <title>Rocket Station - Admin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+  <link rel="icon" type="image/jpg" href="adminicon.png">
   <link rel="stylesheet" href="css/adminstyle.css">
   <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/products.css">
   <link rel="stylesheet" href="css/order.css">
   <link rel="stylesheet" href="css/statistic.css">
+  <link rel="stylesheet" href="css/productEditor.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -17,7 +19,9 @@
   <div class="sidenav">
     <div class="sidebar-header">
       <div class="avatar">
-        <img src="admin.png" alt="admin.png">
+        <a href="adminpage.html">
+          <img src="adminicon.png" alt="admin.png">
+        </a>
       </div>
       <div class="title">
         <h4>Rocket Team</h4>
@@ -26,20 +30,51 @@
     </div>
     <hr>
     <div class="sidebar-menu">
-      <h4>main</h4>
+      <h4>Menu</h4>
       <ul>
-        <li><a class="" href="index.html">Home</a></li>
-        <li><a class="" href="index.html?products">Sản phẩm</a></li>
-        <li><a class="" href="index.html?order">Đơn hàng</a></li>
-        <li><a class="" href="index.html?customer">Khách hàng</a></li>
-        <li><a class="" href="index.html?statistic">Thống kê</a></li>
+        <li><a class="" href="adminpage.html"><i class="fa fa-home"></i>&nbsp;Home</a></li>
+        <li><a class="" href="adminpage.html?products"><i class="fa fa-paw"></i>&nbsp;Sản phẩm</a></li>
+        <li><a class="" href="adminpage.html?order"><i class="fa fa-file-text"></i>&nbsp;Đơn hàng</a></li>
+        <li><a class="" href="adminpage.html?customer"><i class="fa fa-id-card"></i>&nbsp;Khách hàng</a></li>
+        <li><a class="" href="adminpage.html?statistic"><i class="fa fa-bar-chart"></i>&nbsp;Thống kê</a></li>
       </ul>
       <hr>
-      <div><a href="../index.html">Đăng xuất</a></div>
+      <div><a href="index.html"><i class="fa fa-sign-out"></i>&nbsp;Về trang chính</a></div>
     </div>
   </div>
   <section id="section">
+    <!-- form cho thay đổi thông tin sản phẩm -->
+    <div class="product-editor-form">
+      <div class="product-editor-content animate">
+        <form name="productEditor">
+          <div class="product-editor-container">
+            <h1>Sửa thông tin sản phẩm</h1>
+            <hr>
+            <label for="productName"><b>Tên sản phẩm</b></label>
+            <input type="text" placeholder="Tên sản phẩm" name="productName" required>
+
+            <label for="productId"><b>Mã sản phẩm</b></label>
+            <input type="text" placeholder="Mã sản phẩm" name="productId" required>
+
+            <label for="productFirstPrice"><b>Giá gốc</b></label>
+            <input type="text" placeholder="Giá gốc" name="productFirstPrice" required>
+
+            <label for="productFixPrice"><b>Giá giảm</b></label>
+            <input type="text" placeholder="Giá giảm" name="productFixPrice" required>
+
+            <label for="productImgFile"><b>Hình ảnh</b></label>
+            <input type="file" name="productImgFile">
+          </div>
+          <div class="clearfix">
+          <button type="button" class="edit-btn">Thay đổi</button>
+          <button type="button" onclick="closeEditForm()" class="cancel-btn">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- kết thúc form thay đổi thông tin sản phẩm -->
     <div id="content">
+
       <div class="container">
         <div class="statistic-preview shadow">
           <div class="preview-container">
@@ -92,7 +127,9 @@
   </section>
 
   <script src="script/adminscript.js"></script>
-  <script src="script/allProducts.js"></script>
-  <script src="script/products.js"></script>
+  <script src="script/getaccounts.js"></script>
+  <script src="script/productArr.js"></script>
+  <script src="script/adminproducts.js"></script>
+  <script src="script/admincustomer.js"></script>
 </body>
 </html>

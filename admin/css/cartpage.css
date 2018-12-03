@@ -1,0 +1,110 @@
+/*For shopping cart title*/
+#shopping-cart-zone h1{
+        padding:0 0.5em;
+        font-size:2em;
+}
+/*For product in shopping cart*/
+#user-product-zone{
+        display:flex;
+}
+.cart-list-zone{
+        width:80%;
+}
+/*Each product in shopping cart*/
+.product-cart-box{
+        display:grid;
+        grid-template-columns:1fr 3fr 1fr 1fr;
+        background:#fff;
+        padding:1em;
+        border-radius:4px;
+        margin-top:3px;
+        align-items: center;
+}
+.product-cart-img img{
+        width:200px;
+        height:200px;
+}
+/*For name of product in shopping cart */
+.product-cart-name{
+        text-decoration:none;
+        color:black;
+}
+.product-cart-name:hover{
+        text-decoration:underline;
+}
+/*Delete button in shopping cart*/
+.cart-del-btn{
+        outline:none;
+        border:none;
+        color:#fff;
+        background:#ff5959;
+        padding:8px 10px;
+        border-radius:4px;
+        margin-left:10px;
+}
+.cart-price .cart-last-price{
+        color:#ff5959;
+        font-weight: bold;
+        font-size:1.2em;
+}
+.cart-price .cart-first-price{
+        text-decoration:line-through;
+        color: #706F6F;
+}
+/*For increase and decrease quantity button zone*/
+.change-quantity-btn{
+        border:1px solid #9F9C9C;
+        outline:none;
+        background:#fff;
+        padding:2px 8px;
+
+}
+.quantity-btn-group{
+        margin-left:8px;
+}
+.sub-quantity{
+        border-right:none;
+        border-radius:4px 0 0 4px;
+}
+.add-quantity{
+        border-left:none;
+        border-radius:0 4px 4px 0;
+}
+.pay-box{
+        width:20%;
+}
+/*Pay box on the right*/
+.pay-box-btn{
+        text-align:center;
+}
+.total-price{
+        display:flex;
+        justify-content: space-between;
+        padding:1em;
+        background:#fff;
+        border-radius:4px;
+        margin:5px;
+        box-shadow:2px 3px 8px rgba(0,0,0,0.24);
+}
+.total-price .left-price{
+        margin-top:8px;
+}
+.total-price .right-price{
+        color:#ff5959;
+        font-weight:bold;
+        font-size:1.5em;
+}
+.order-btn{
+        border:none;
+        outline:none;
+        background:#FC7171;
+        padding:1em 1.2em;
+        color:#fff;
+        width:96%;
+        border-radius:4px;
+        box-shadow:2px 3px 6px rgba(0,0,0,0.24);      
+        font-weight:bold;  
+}
+.order-btn:hover{
+        background:#ff5959;
+}

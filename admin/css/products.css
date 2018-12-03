@@ -5,6 +5,8 @@
 .tbl-searchbar {
   text-align: center;
   padding: 10px;
+  display: inline-block;
+  margin: auto;
 }
 .tbl-searchbar input, .tbl-searchbar select {
   border: 1px solid #c4c4c4;
